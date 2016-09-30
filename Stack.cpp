@@ -5,22 +5,6 @@
 Stack::Stack(int limit)
 {
     m_limit = limit;
-    m_size = 0;
-    top = nullptr;
-}
-
-Stack::~Stack()
-{
-    Node<T>* next = nullptr;
-
-    while (top != nullptr)
-    {
-        next = top->getNextNode();
-
-        delete top;
-
-        top = next;
-    }
 }
 
 int Stack::getLimit()
@@ -35,49 +19,47 @@ void Stack::setLimit(int limit)
 
 bool Stack::isEmpty()
 {
-    return(top == nullptr);
+    return(m_stack.getLength() == 0);
+}
+
+bool Stack::isFull()
+{
+    return(m_stack.getLength() == m_limit);
 }
 
 template <typename T>
 void Stack::push(T newTop) throw(PreconditionViolationException)
 {
-    if (m_size == m_limit)
+    if (isFull())
     {
         throw(PreconditionViolationException("ERROR: Stack is full."));
     }
 
-    Node<T>* newNode = new Node<T>(newTop);
-
-    newNode.setNextNode(top);
-
-    top = newNode;
+    m_stack->addFront(newTop);
 }
 
 template <typename T>
 T Stack::peek() throw(PreconditionViolationException)
 {
-    if(m_size == 0)
+    if(isEmpty())
     {
         throw(PreconditionViolationException("ERROR: Stack is empty."));
     }
 
-    return(top->getItem());
+    return(m_stack->getFront());
 }
 
 template <typename T>
 T Stack::pop() throw(PreconditionViolationException)
 {
-    if(m_size == 0)
+    if(isEmpty())
     {
         throw(PreconditionViolationException("ERROR: Stack is empty."));
     }
 
-    T value = top->getItem();
-    Node<T>* removedNode = top;
+    T value = m_stack.getFront();
 
-    top = removedNode.getNextNode();
-
-    delete removedNode;
+    m_stack.removeFront();
 
     return(value);
 }

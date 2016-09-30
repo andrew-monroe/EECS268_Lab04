@@ -11,13 +11,13 @@ class Stack: public StackInterface
     public:
         Stack(int limit);
 
-        ~Stack();
-
         int getLimit();
 
         void setLimit(int limit);
 
         bool isEmpty();
+
+        bool isFull();
 
         void push(T newTop) throw(PreconditionViolationException);
 
@@ -26,9 +26,8 @@ class Stack: public StackInterface
         T pop() throw(PreconditionViolationException);
 
     private:
+        LinkedList m_stack;
         int m_limit;
-        int m_size;
-        Node<T>* top;
 };
 
 #endif

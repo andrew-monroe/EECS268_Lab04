@@ -4,7 +4,7 @@
 #define StackInterface_h
 
 #include "PreconditionViolationException.h"
-#include "Node.h"
+#include "LinkedList.h"
 
 template <typename T>
 class StackInterface
@@ -12,7 +12,7 @@ class StackInterface
     public:
         virtual bool isEmpty() = 0;
 
-        virtual void push(node<T>) throw(PreconditionViolationException) = 0;
+        virtual void push(T newTop) throw(PreconditionViolationException) = 0;
 
         virtual T peek() throw(PreconditionViolationException) = 0;
 
