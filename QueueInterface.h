@@ -10,6 +10,8 @@ template <typename T>
 class QueueInterface
 {
     public:
+        virtual ~QueueInterface();
+
         virtual bool isEmpty() = 0;
 
         virtual void enqueue(T newBack) throw(PreconditionViolationException) = 0;

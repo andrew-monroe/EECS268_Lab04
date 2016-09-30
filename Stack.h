@@ -11,6 +11,8 @@ class Stack: public StackInterface
     public:
         Stack(int limit);
 
+        ~Stack();
+
         int getLimit();
 
         void setLimit(int limit);

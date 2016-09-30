@@ -10,6 +10,9 @@ template <typename T>
 class StackInterface
 {
     public:
+
+        virtual ~StackInterface();
+
         virtual bool isEmpty() = 0;
 
         virtual void push(T newTop) throw(PreconditionViolationException) = 0;

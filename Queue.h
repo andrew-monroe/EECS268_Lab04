@@ -9,6 +9,7 @@ template <typename T>
 class Queue: public QueueInterface
 {
     public:
+        ~Queue();
 
         bool isEmpty();
 

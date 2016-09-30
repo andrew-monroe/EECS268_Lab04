@@ -6,6 +6,11 @@ Stack::Stack(int limit)
     m_limit = limit;
 }
 
+Stack::~Stack()
+{
+    
+}
+
 int Stack::getLimit()
 {
     return(m_limit);

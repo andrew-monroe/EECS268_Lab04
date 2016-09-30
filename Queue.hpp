@@ -1,6 +1,11 @@
 
 
 
+Queue::~Queue()
+{
+    
+}
+
 bool Queue::isEmpty()
 {
     return(m_queue.getLimit() == 0);
