@@ -30,4 +30,6 @@ class Stack: public StackInterface
         int m_limit;
 };
 
+#include "Stack.hpp"
+
 #endif

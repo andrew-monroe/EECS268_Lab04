@@ -22,4 +22,6 @@ class Queue: public QueueInterface
         LinkedList m_queue;
 };
 
+#include "Queue.hpp"
+
 #endif
