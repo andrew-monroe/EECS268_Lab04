@@ -1,4 +1,12 @@
-
+/*
+*   Author:     Andrew Monroe
+*   Date:       10/04/16
+*   File Name:  BuildingExecutive.h
+*   File Description: Header file for BuildingExecutive class. This class takes
+        input from a given file and uses it to create, manage, and operate on
+        a limited-capacity elevator stack and a line to board the elevator
+        queue.
+*/
 
 #ifndef BuildingExecutive_h
 #define BuildingExecutive_h

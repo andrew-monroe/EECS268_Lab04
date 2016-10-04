@@ -1,4 +1,11 @@
-
+/*
+*   Author:     Andrew Monroe
+*   Date:       10/04/16
+*   File Name:  QueueInterface.h
+*   File Description: The base class used for Queue classes. Requires derived
+        classes to include these methods: destructor, isEmpty, enqueue,
+        peekFront, dequeue.
+*/
 
 #ifndef QueueInterface_h
 #define QueueInterface_h

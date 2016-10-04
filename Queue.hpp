@@ -1,4 +1,9 @@
-
+/*
+*   Author:     Andrew Monroe
+*   Date:       10/04/16
+*   File Name:  Queue.hpp
+*   File Description: Creates the method definitions for the Queue class.
+*/
 
 template <typename T>
 Queue<T>::Queue()

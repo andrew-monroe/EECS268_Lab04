@@ -1,4 +1,10 @@
-
+/*
+*   Author:     Andrew Monroe
+*   Date:       10/04/16
+*   File Name:  BuildingExecutive.cpp
+*   File Description: Creates the method definitions for the BuildingExecutive
+        class.
+*/
 
 #include "BuildingExecutive.h"
 

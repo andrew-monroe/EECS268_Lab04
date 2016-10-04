@@ -1,9 +1,8 @@
-/**
-*	@file Node.cpp
-*	@author Andy Monroe
-*	@date 09-30-2016
-*	@brief Implementation file for templated class Node. Node contains an
-        object and a pointer to another Node.
+/*
+*   Author:     Andrew Monroe
+*   Date:       10/04/16
+*   File Name:  Node.hpp
+*   File Description: Creates the method definitions for the Node class.
 */
 
 /*

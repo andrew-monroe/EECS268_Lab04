@@ -1,4 +1,9 @@
-
+/*
+*   Author:     Andrew Monroe
+*   Date:       10/04/16
+*   File Name:  Stack.hpp
+*   File Description: Creates the method definitions for the Stack class.
+*/
 
 template <typename T>
 Stack<T>::Stack()

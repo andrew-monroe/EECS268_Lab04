@@ -1,9 +1,10 @@
-/**
-*	@file Node.h
-*	@author Andy Monroe
-*	@date 09-3--2016
-*	@brief Header file for templated class Node. Node contains an object and a
-        pointer to another Node.
+/*
+*   Author:     Andrew Monroe
+*   Date:       10/04/16
+*   File Name:  Node.h
+*   File Description: Header file for a Node class. Each Node contains a value
+        and a pointer to another Node and some methods to operate on and view
+        these values.
 */
 
 #ifndef Node_h

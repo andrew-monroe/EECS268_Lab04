@@ -1,4 +1,11 @@
-
+/*
+*   Author:     Andrew Monroe
+*   Date:       10/04/16
+*   File Name:  StackInterface
+*   File Description: The base class used for Stack classes. Requires derived
+        classes to include these methods: destructor, isEmpty, push, peek, and
+        pop.
+*/
 
 #ifndef StackInterface_h
 #define StackInterface_h

@@ -1,4 +1,10 @@
-
+/*
+*   Author:     Andrew Monroe
+*   Date:       10/04/16
+*   File Name:  Queue.h
+*   File Description: Class derived from QueueInterface base class. Typical
+        queue-style data structure.
+*/
 
 #ifndef Queue_h
 #define Queue_h
