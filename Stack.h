@@ -14,21 +14,19 @@ class Stack: public StackInterface<T>
 
         Stack();
 
-        Stack(int limit);
-
         ~Stack();
 
-        int getLimit();
+        int getLimit() const;
 
         void setLimit(int limit);
 
-        bool isEmpty();
+        bool isEmpty() const;
 
         bool isFull();
 
         void push(T newTop) throw(PreconditionViolationException);
 
-        T peek() throw(PreconditionViolationException);
+        T peek() const throw(PreconditionViolationException);
 
         T pop() throw(PreconditionViolationException);
 

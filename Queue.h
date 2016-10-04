@@ -15,11 +15,11 @@ class Queue: public QueueInterface<T>
 
         ~Queue();
 
-        bool isEmpty();
+        bool isEmpty() const;
 
         void enqueue(T newBack) throw(PreconditionViolationException);
 
-        T peekFront() throw(PreconditionViolationException);
+        T peekFront() const throw(PreconditionViolationException);
 
         T dequeue() throw(PreconditionViolationException);
 

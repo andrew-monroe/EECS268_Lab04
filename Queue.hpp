@@ -21,7 +21,7 @@ Queue<T>::~Queue()
 }
 
 template <typename T>
-bool Queue<T>::isEmpty()
+bool Queue<T>::isEmpty() const
 {
     return(m_front == nullptr);
 }
@@ -47,7 +47,7 @@ void Queue<T>::enqueue(T newBack) throw(PreconditionViolationException)
 }
 
 template <typename T>
-T Queue<T>::peekFront() throw(PreconditionViolationException)
+T Queue<T>::peekFront() const throw(PreconditionViolationException)
 {
     if(isEmpty())
     {

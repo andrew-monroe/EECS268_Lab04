@@ -13,11 +13,11 @@ class QueueInterface
 
         virtual ~QueueInterface() {};
 
-        virtual bool isEmpty() = 0;
+        virtual bool isEmpty() const = 0;
 
         virtual void enqueue(T newBack) throw(PreconditionViolationException) = 0;
 
-        virtual T peekFront() throw(PreconditionViolationException) = 0;
+        virtual T peekFront() const throw(PreconditionViolationException) = 0;
 
         virtual T dequeue() throw(PreconditionViolationException) = 0;
 };

@@ -9,14 +9,6 @@ Stack<T>::Stack()
 }
 
 template <typename T>
-Stack<T>::Stack(int limit)
-{
-    m_top = nullptr;
-    m_limit = limit;
-    m_size = 0;
-}
-
-template <typename T>
 Stack<T>::~Stack()
 {
     Node<T>* temp = m_top;
@@ -32,7 +24,7 @@ Stack<T>::~Stack()
 }
 
 template <typename T>
-int Stack<T>::getLimit()
+int Stack<T>::getLimit() const
 {
     return(m_limit);
 }
@@ -44,7 +36,7 @@ void Stack<T>::setLimit(int limit)
 }
 
 template <typename T>
-bool Stack<T>::isEmpty()
+bool Stack<T>::isEmpty() const
 {
     return(m_top == nullptr);
 }
@@ -73,7 +65,7 @@ void Stack<T>::push(T newTop) throw(PreconditionViolationException)
 }
 
 template <typename T>
-T Stack<T>::peek() throw(PreconditionViolationException)
+T Stack<T>::peek() const throw(PreconditionViolationException)
 {
     if(isEmpty())
     {

@@ -13,11 +13,11 @@ class StackInterface
 
         virtual ~StackInterface() {};
 
-        virtual bool isEmpty() = 0;
+        virtual bool isEmpty() const = 0;
 
         virtual void push(T newTop) throw(PreconditionViolationException) = 0;
 
-        virtual T peek() throw(PreconditionViolationException) = 0;
+        virtual T peek() const throw(PreconditionViolationException) = 0;
 
         virtual T pop() throw(PreconditionViolationException) = 0;
 };
