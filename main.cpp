@@ -1,4 +1,10 @@
-
+/*
+*   Author:     Andrew Monroe
+*   Date:       10/04/16
+*   File Name:  main.cpp
+*   File Description: Checks for proper number of command-line arguments. Create
+        a BuildingExecutive object with the file name and call its run method.
+*/
 
 #include <iostream>
 #include "BuildingExecutive.h"
