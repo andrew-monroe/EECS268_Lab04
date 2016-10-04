@@ -13,17 +13,17 @@ void BuildingExecutive::run()
     std::string command = "";
     std::string commandArg = "";
 
-    try
+    std::ifstream inFile;
+    inFile.open(m_fileName);
+
+    if (inFile.is_open())
     {
-        std::ifstream inFile;
-        inFile.open(m_fileName);
+        inFile >> command;
 
-        if (inFile.is_open())
+        do
         {
-            do
+            try
             {
-                inFile >> command;
-
                 if (command == "WAIT")
                 {
                     inFile >> commandArg;
@@ -48,12 +48,19 @@ void BuildingExecutive::run()
                 {
                     throw(std::runtime_error("INPUT FAILURE."));
                 }
-            } while (!inFile.eof());
-        }
-    }
-    catch (std::runtime_error& e)
-    {
-        std::cout << "ERROR: " << e.what() << std::endl;
+            }
+            catch (PreconditionViolationException& e)
+            {
+
+            }
+            catch (std::runtime_error& e)
+            {
+                std::cout << "ERROR: " << e.what() << std::endl;
+            }
+
+            inFile >> command;
+
+        } while (!inFile.eof());
     }
 }
 
