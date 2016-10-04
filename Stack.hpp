@@ -76,7 +76,7 @@ T Stack<T>::peek() const throw(PreconditionViolationException)
 }
 
 template <typename T>
-T Stack<T>::pop() throw(PreconditionViolationException)
+void Stack<T>::pop() throw(PreconditionViolationException)
 {
     if(isEmpty())
     {
@@ -85,13 +85,9 @@ T Stack<T>::pop() throw(PreconditionViolationException)
 
     Node<T>* removedNode = m_top;
 
-    T value = m_top->getItem();
-
     m_top = m_top->getNextNode();
 
     delete removedNode;
 
     m_size--;
-
-    return(value);
 }

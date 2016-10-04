@@ -19,7 +19,7 @@ class StackInterface
 
         virtual T peek() const throw(PreconditionViolationException) = 0;
 
-        virtual T pop() throw(PreconditionViolationException) = 0;
+        virtual void pop() throw(PreconditionViolationException) = 0;
 };
 
 #endif

@@ -28,7 +28,7 @@ class Stack: public StackInterface<T>
 
         T peek() const throw(PreconditionViolationException);
 
-        T pop() throw(PreconditionViolationException);
+        void pop() throw(PreconditionViolationException);
 
     private:
         Node<T>* m_top;
