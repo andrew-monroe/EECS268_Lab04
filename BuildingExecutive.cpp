@@ -22,34 +22,26 @@ void BuildingExecutive::run()
         {
             do
             {
-                std::getline(inFile, command, ' ');
+                inFile >> command;
 
                 if (command == "WAIT")
                 {
-                    std::cout << "add to wait" << std::endl;
-
-                    std::getline(inFile, commandArg);
+                    inFile >> commandArg;
 
                     addToWaitLine(commandArg);
                 }
                 else if (command == "PICK_UP")
                 {
-                    std::cout << "doing pick up" << std::endl;
-
                     pickUp();
                 }
                 else if (command == "DROP_OFF")
                 {
-                    std::cout << "doing drop off" << std::endl;
-
-                    std::getline(inFile, commandArg);
+                    inFile >> commandArg;
 
                     dropOff(std::stoi(commandArg));
                 }
                 else if (command == "INSPECTION")
                 {
-                    std::cout << "performing inspection" << std::endl;
-
                     inspection();
                 }
                 else
