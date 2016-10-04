@@ -58,7 +58,7 @@ T Queue<T>::peekFront() const throw(PreconditionViolationException)
 }
 
 template <typename T>
-T Queue<T>::dequeue() throw(PreconditionViolationException)
+void Queue<T>::dequeue() throw(PreconditionViolationException)
 {
     if(isEmpty())
     {
@@ -67,12 +67,7 @@ T Queue<T>::dequeue() throw(PreconditionViolationException)
 
     Node<T>* temp = m_front;
 
-    T value = m_front->getItem();
-
     m_front = m_front->getNextNode();
 
     delete temp;
-
-    return(value);
-
 }

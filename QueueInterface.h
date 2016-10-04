@@ -19,7 +19,7 @@ class QueueInterface
 
         virtual T peekFront() const throw(PreconditionViolationException) = 0;
 
-        virtual T dequeue() throw(PreconditionViolationException) = 0;
+        virtual void dequeue() throw(PreconditionViolationException) = 0;
 };
 
 #endif

@@ -21,7 +21,7 @@ class Queue: public QueueInterface<T>
 
         T peekFront() const throw(PreconditionViolationException);
 
-        T dequeue() throw(PreconditionViolationException);
+        void dequeue() throw(PreconditionViolationException);
 
     private:
         Node<T>* m_front;

@@ -62,6 +62,10 @@ void BuildingExecutive::run()
 
         } while (!inFile.eof());
     }
+    else
+    {
+        std::cout << "Could not find a file named " << m_fileName << std::endl;
+    }
 }
 
 void BuildingExecutive::addToWaitLine(std::string name)
@@ -73,7 +77,9 @@ void BuildingExecutive::pickUp()
 {
     while(!m_peopleInElevator.isFull())
     {
-        m_peopleInElevator.push(m_elevatorLine.dequeue());
+        m_peopleInElevator.push(m_elevatorLine.peekFront());
+
+        m_elevatorLine.dequeue();
     }
 }
 
