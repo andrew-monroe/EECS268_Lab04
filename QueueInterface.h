@@ -4,13 +4,14 @@
 #define QueueInterface_h
 
 #include "PreconditionViolationException.h"
-#include "LinkedList.h"
+#include "Node.h"
 
 template <typename T>
 class QueueInterface
 {
     public:
-        virtual ~QueueInterface();
+
+        virtual ~QueueInterface() {};
 
         virtual bool isEmpty() = 0;
 

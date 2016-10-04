@@ -4,14 +4,14 @@
 #define StackInterface_h
 
 #include "PreconditionViolationException.h"
-#include "LinkedList.h"
+#include "Node.h"
 
 template <typename T>
 class StackInterface
 {
     public:
 
-        virtual ~StackInterface();
+        virtual ~StackInterface() {};
 
         virtual bool isEmpty() = 0;
 

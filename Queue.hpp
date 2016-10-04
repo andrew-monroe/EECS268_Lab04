@@ -1,41 +1,77 @@
 
 
-
-Queue::~Queue()
+template <typename T>
+Queue<T>::Queue()
 {
-    
+    m_front = nullptr;
 }
 
-bool Queue::isEmpty()
+
+template <typename T>
+Queue<T>::~Queue()
 {
-    return(m_queue.getLimit() == 0);
+    Node<T>* temp = m_front;
+
+    while (m_front != nullptr)
+    {
+        temp = m_front->getNextNode();
+        delete m_front;
+        m_front = temp;
+    }
 }
 
-void Queue::enqueue(T newBack) throw(PreconditionViolationException)
+template <typename T>
+bool Queue<T>::isEmpty()
 {
-    m_queue.addBack(newBack);
+    return(m_front == nullptr);
 }
 
-T Queue::peekFront() throw(PreconditionViolationException)
+template <typename T>
+void Queue<T>::enqueue(T newBack) throw(PreconditionViolationException)
+{
+    Node<T>* temp = m_front;
+
+    if(isEmpty())
+    {
+        m_front = new Node<T>(newBack);
+    }
+    else
+    {
+        while(temp->getNextNode() != nullptr)
+        {
+            temp = temp->getNextNode();
+        }
+
+        temp->setNextNode(new Node<T>(newBack));
+    }
+}
+
+template <typename T>
+T Queue<T>::peekFront() throw(PreconditionViolationException)
 {
     if(isEmpty())
     {
-        throw(PreconditionViolationException("ERROR: Queue is empty."));
+        throw(PreconditionViolationException("Peek attempted on empty queue."));
     }
 
-    m_queue.getFront();
+    return(m_front->getItem());
 }
 
-T Queue::dequeue() throw(PreconditionViolationException)
+template <typename T>
+T Queue<T>::dequeue() throw(PreconditionViolationException)
 {
     if(isEmpty())
     {
-        throw(PreconditionViolationException("ERROR: Queue is empty."));
+        throw(PreconditionViolationException("Dequeue attempted on empty queue"));
     }
 
-    T value = m_queue.getFront();
+    Node<T>* temp = m_front;
 
-    m_queue.removeFront();
+    T value = m_front->getItem();
+
+    m_front = m_front->getNextNode();
+
+    delete temp;
 
     return(value);
 

@@ -4,11 +4,16 @@
 #define Stack_h
 
 #include "StackInterface.h"
+#include "Node.h"
+
 
 template <typename T>
-class Stack: public StackInterface
+class Stack: public StackInterface<T>
 {
     public:
+
+        Stack();
+
         Stack(int limit);
 
         ~Stack();
@@ -28,8 +33,9 @@ class Stack: public StackInterface
         T pop() throw(PreconditionViolationException);
 
     private:
-        LinkedList m_stack;
+        Node<T>* m_top;
         int m_limit;
+        int m_size;
 };
 
 #include "Stack.hpp"

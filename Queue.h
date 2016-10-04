@@ -4,11 +4,15 @@
 #define Queue_h
 
 #include "QueueInterface.h"
+#include "Node.h"
 
 template <typename T>
-class Queue: public QueueInterface
+class Queue: public QueueInterface<T>
 {
     public:
+
+        Queue();
+
         ~Queue();
 
         bool isEmpty();
@@ -20,7 +24,7 @@ class Queue: public QueueInterface
         T dequeue() throw(PreconditionViolationException);
 
     private:
-        LinkedList m_queue;
+        Node<T>* m_front;
 };
 
 #include "Queue.hpp"

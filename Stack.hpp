@@ -1,69 +1,105 @@
 
 
-
-Stack::Stack(int limit)
+template <typename T>
+Stack<T>::Stack()
 {
+    m_top = nullptr;
+    m_limit = 0;
+    m_size = 0;
+}
+
+template <typename T>
+Stack<T>::Stack(int limit)
+{
+    m_top = nullptr;
     m_limit = limit;
+    m_size = 0;
 }
 
-Stack::~Stack()
+template <typename T>
+Stack<T>::~Stack()
 {
-    
+    Node<T>* temp = m_top;
+
+    while (m_top != nullptr)
+    {
+        temp = m_top->getNextNode();
+
+        delete m_top;
+
+        m_top = temp;
+    }
 }
 
-int Stack::getLimit()
+template <typename T>
+int Stack<T>::getLimit()
 {
     return(m_limit);
 }
 
-void Stack::setLimit(int limit)
+template <typename T>
+void Stack<T>::setLimit(int limit)
 {
     m_limit = limit;
 }
 
-bool Stack::isEmpty()
+template <typename T>
+bool Stack<T>::isEmpty()
 {
-    return(m_stack.getLength() == 0);
-}
-
-bool Stack::isFull()
-{
-    return(m_stack.getLength() == m_limit);
+    return(m_top == nullptr);
 }
 
 template <typename T>
-void Stack::push(T newTop) throw(PreconditionViolationException)
+bool Stack<T>::isFull()
+{
+    return(m_size == m_limit);
+}
+
+template <typename T>
+void Stack<T>::push(T newTop) throw(PreconditionViolationException)
 {
     if (isFull())
     {
-        throw(PreconditionViolationException("ERROR: Stack is full."));
+        throw(PreconditionViolationException("Push attempted on full stack."));
     }
 
-    m_stack->addFront(newTop);
+    Node<T>* top = new Node<T>(newTop);
+
+    top->setNextNode(m_top);
+
+    m_top = top;
+
+    m_size++;
 }
 
 template <typename T>
-T Stack::peek() throw(PreconditionViolationException)
+T Stack<T>::peek() throw(PreconditionViolationException)
 {
     if(isEmpty())
     {
-        throw(PreconditionViolationException("ERROR: Stack is empty."));
+        throw(PreconditionViolationException("Peek attempted on empty stack."));
     }
 
-    return(m_stack->getFront());
+    return(m_top->getItem());
 }
 
 template <typename T>
-T Stack::pop() throw(PreconditionViolationException)
+T Stack<T>::pop() throw(PreconditionViolationException)
 {
     if(isEmpty())
     {
-        throw(PreconditionViolationException("ERROR: Stack is empty."));
+        throw(PreconditionViolationException("Pop attempted on empty stack."));
     }
 
-    T value = m_stack.getFront();
+    Node<T>* removedNode = m_top;
 
-    m_stack.removeFront();
+    T value = m_top->getItem();
+
+    m_top = m_top->getNextNode();
+
+    delete removedNode;
+
+    m_size--;
 
     return(value);
 }
